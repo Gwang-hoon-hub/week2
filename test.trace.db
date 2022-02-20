@@ -1,0 +1,41 @@
+2022-02-20 01:15:59 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "
+    CREATE TABLE LIKE[*] (
+       LIKE_ID BIGINT NOT NULL,
+        CREATE_AT TIMESTAMP,
+        MODIFIED_AT TIMESTAMP,
+        MEMBER_ID BIGINT,
+        POST_ID BIGINT,
+        PRIMARY KEY (LIKE_ID)
+    )"; expected "identifier"; SQL statement:
+
+    create table like (
+       like_id bigint not null,
+        create_at timestamp,
+        modified_at timestamp,
+        member_id bigint,
+        post_id bigint,
+        primary key (like_id)
+    ) [42001-200]
+2022-02-20 01:15:59 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "
+    ALTER TABLE LIKE[*] 
+       ADD CONSTRAINT FKDLTJ7TCXJPDEB0QMB26RN2YEV 
+       FOREIGN KEY (MEMBER_ID) 
+       REFERENCES MEMBER"; expected "identifier"; SQL statement:
+
+    alter table like 
+       add constraint FKdltj7tcxjpdeb0qmb26rn2yev 
+       foreign key (member_id) 
+       references member [42001-200]
+2022-02-20 01:15:59 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "
+    ALTER TABLE LIKE[*] 
+       ADD CONSTRAINT FKJ35OSR3KH1HQYYTEIULF4EVO0 
+       FOREIGN KEY (POST_ID) 
+       REFERENCES POST"; expected "identifier"; SQL statement:
+
+    alter table like 
+       add constraint FKj35osr3kh1hqyyteiulf4evo0 
+       foreign key (post_id) 
+       references post [42001-200]

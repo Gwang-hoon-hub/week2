@@ -1,14 +1,15 @@
 package com.pang.week2.service;
 
 import com.pang.week2.Model.Member;
+import com.pang.week2.dtoClass.MemberDto;
 import com.pang.week2.repository.MemberRepository;
-import com.pang.week2.requestDto.reqRegisterDto;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
+import javax.validation.Valid;
 
 @RequiredArgsConstructor
 @Service
@@ -21,8 +22,11 @@ public class MemberService {
     private BCryptPasswordEncoder passwordEncoder;
 
 
-    public void save(reqRegisterDto dto){
-        System.out.println(dto.getName());
+    public void save(MemberDto.reqRegisterDto dto){
+
+        if(dto.getPassword().contains(dto.getUsername())){
+            throw new IllegalArgumentException();
+        }
         // 복화화된 암호
         String pwd = passwordEncoder.encode(dto.getPassword());
         Member member = Member.builder()

@@ -16,6 +16,9 @@ public class Likes extends Timestamped{
     @Column(name = "likeId")
     private Long id;
 
+    @Column
+    private Boolean like_check;
+
     @ManyToOne
     @JoinColumn(name = "postId")
     private Post post;

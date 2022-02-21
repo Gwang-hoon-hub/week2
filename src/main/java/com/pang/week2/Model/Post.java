@@ -1,9 +1,7 @@
 package com.pang.week2.Model;
 
-import lombok.AccessLevel;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
+import com.pang.week2.dtoClass.PostDto;
+import lombok.*;
 
 import javax.persistence.*;
 
@@ -27,12 +25,28 @@ public class Post extends Timestamped{
     @Column(nullable = false)
     private String img_url;
 
-    @Column(nullable = false)
-    private String title;
 
     @ManyToOne
     @JoinColumn(name = "memberId")
     private Member member;
+
+    public Post(PostDto.reqCreateDto dto, Member member){
+        this.img_url = dto.getImg_url();
+        this.contents = dto.getContents();
+        this.member = member;
+    }
+
+    public PostDto update(PostDto.reqUpdateDto dto){
+        this.img_url = dto.getImg_url();
+        this.contents = dto.getContents();
+        return PostDto.builder()
+                .contents(this.contents)
+                .img_url(this.img_url)
+                .id(this.id)
+                .member(this.member)
+                .build();
+    }
+
 
 
 

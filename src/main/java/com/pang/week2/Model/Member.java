@@ -35,4 +35,5 @@ public class Member extends Timestamped{
         this.name = name;
         this.password = password;
     }
+
 }

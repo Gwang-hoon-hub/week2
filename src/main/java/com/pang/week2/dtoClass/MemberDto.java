@@ -17,7 +17,6 @@ public class MemberDto {
     public static class reqLoginDto{
         private String username;
         private String password;
-        private String name;
     }
 
     @Getter
@@ -35,6 +34,7 @@ public class MemberDto {
         @NotEmpty
         private String name;
     }
+
 
 
 }

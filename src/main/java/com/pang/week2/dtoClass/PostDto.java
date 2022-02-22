@@ -9,7 +9,6 @@ import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Pattern;
 
 @Builder
 public class PostDto {
@@ -25,7 +24,6 @@ public class PostDto {
 
     @Column(nullable = false)
     private String img_url;
-
 
     @ManyToOne
     @JoinColumn(name = "memberId")

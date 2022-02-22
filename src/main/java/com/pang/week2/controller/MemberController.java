@@ -5,10 +5,7 @@ import com.pang.week2.dtoClass.MemberDto;
 import com.pang.week2.service.MemberService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
 import javax.validation.ValidationException;
@@ -19,23 +16,26 @@ public class MemberController {
 
     private final MemberService memberService;
 
-    // 회원가입에 대한 모든 데이터를 적고 회원가입 요청을 보내면 회원가입.
+    // 회원가입
     @PostMapping("/signup")
-    public ResponseEntity register(@Valid MemberDto.reqRegisterDto dto) {
+    public ResponseEntity register(@RequestBody @Valid MemberDto.reqRegisterDto dto) {
         memberService.save(dto);
-        // 회원가입 성공을 하면 홈 화면으로 보여줘라
-        return "redirect:/";
+        return ResponseEntity.ok().build();
     }
 
-    @PostMapping("/signin")
-    public  ResponseEntity login(@RequestBody MemberDto.reqLoginDto dto){
+//    // 로그인
+//    @PostMapping("/signin")
+//    public  ResponseEntity login(@RequestBody MemberDto.reqLoginDto dto){
+//
+//    }
 
-    }
-
-    @GetMapping("/logout")
-    public ResponseEntity logout(){
-
-    }
+//    // 로그아웃
+//    @GetMapping("/logout")
+//    public ResponseEntity logout(){
+//
+//    }
 
 
 }
+
+

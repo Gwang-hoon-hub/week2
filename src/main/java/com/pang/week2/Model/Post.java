@@ -25,7 +25,6 @@ public class Post extends Timestamped{
     @Column(nullable = false)
     private String img_url;
 
-
     @ManyToOne
     @JoinColumn(name = "memberId")
     private Member member;

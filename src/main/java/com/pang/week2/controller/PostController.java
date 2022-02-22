@@ -24,7 +24,6 @@ public class PostController {
         return ResponseEntity.ok(response);
     }
 
-
     // 생성
     // 들어오는 값 : contents, img_url,
     @PostMapping("api/posts")
